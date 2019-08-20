@@ -1,0 +1,347 @@
+:root {
+	--color1: #F3F3F3;
+	--color2: #63DC6F;
+	--color3: #FF6666;
+	--color4: #808080;
+	--headerHeight: 89.9833px
+}
+
+html {
+	box-align: border-box
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit
+}
+
+body,
+.form__inputArea {
+	position: relative
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	flex-direction: column;
+	font-size: 5px;
+}
+
+.inputReset {
+	border: 0
+}
+
+.fieldReset,
+.inputReset {
+	padding: 0
+}
+
+.btnReset {
+	padding-right: 0;
+	border: none;
+	cursor: pointer
+}
+
+.listReset {
+	list-style: none;
+	margin-bottom: 0
+}
+
+.listReset,
+.info__copyright {
+	margin-top: 0
+}
+
+.btnReset,
+.listReset {
+	padding-left: 0
+}
+
+.header {
+	padding: 3em 4em;
+	justify-content: space-between;
+	align-items: center
+}
+
+.header__logo {
+	width: 26.6em
+}
+
+.header__info__btn {
+	margin-right: 1.2em;
+	outline: none
+}
+
+.info,
+.form__label {
+	position: absolute
+}
+
+.info,
+.form__input {
+	width: 100%
+}
+
+.info,
+.productListContainer.empty .productListPlaceholder,
+.totalSum__number {
+	font-size: 3em
+}
+
+.info,
+.form,
+.form__label {
+	background-color: var(--color1)
+}
+
+.info {
+	top: var(--headerHeight);
+	left: 0;
+	z-index: 1;
+	min-height: calc(100vh - var(--headerHeight));
+	align-items: flex-end;
+	transform: translateX(-100%);
+	transition: transform .3s ease-out
+}
+
+.info.is__showing {
+	transform: translateX(0)
+}
+
+.info .wrapper {
+	width: 16.4em;
+	max-width: 76.875%;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.info__social__list {
+	margin-bottom: 3.5em
+}
+
+.info__social__list__item:not(:last-child) {
+	margin-right: 2em
+}
+
+.info__social__icon {
+	width: auto;
+	height: 2.4em
+}
+
+.form {
+	grid-template-columns: 1fr 1fr 1fr 8em;
+	grid-auto-rows: 8em;
+	grid-template-areas: 'producto producto producto carrito'
+						 'cantidad precio precio cancelar';
+	grid-gap: calc(13 / 7.5 * 1em);
+	padding: 4em calc(20 / 7.5 * 1em);
+	font-size: 1.5em; /* 7.5px */
+}
+
+.producto {
+	grid-area: producto
+}
+
+.cantidad {
+	grid-area: cantidad
+}
+
+.precio {
+	grid-area: precio
+}
+
+.carrito {
+	grid-area: carrito
+}
+
+.cancelar {
+	grid-area: cancelar
+}
+
+.form__inputArea {
+	border-radius: calc(5 / 7.5 * 1em);
+	border: 1px solid var(--color4)
+}
+
+.form__label {
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0 calc(5 / 7.5 * 1em);
+	font-size: inherit
+}
+
+.form__input {
+	height: 100%
+}
+
+.form__btnSubmit,
+.form__btnCancel,
+.totalSum__btnClean {
+	border-radius: 0.3125rem
+}
+
+.form__btnSubmit {
+	background-color: var(--color2)
+}
+
+.header__info__btn,
+.form__input,
+.form__btnCancel {
+	background-color: rgba(0, 0, 0, 0)
+}
+
+.form__btn__icon {
+	width: 2.25em
+}
+
+.productListContainer {
+	overflow-y: auto;
+	flex-grow: 1
+}
+
+
+
+.productList {
+	padding: 3em 2em;
+}
+
+.productListItem {
+	grid-template-columns: 1fr 1fr 6em 6em;
+	grid-gap: 1.3em
+}
+
+.form,
+.productListItem {
+	display: grid
+}
+
+.productListItem:not(:last-child) {
+	margin-bottom: 3.05em
+}
+
+.productListItemInfo {
+	grid-column: span 2
+}
+
+.productListItem__name,
+.productListItem__subtotal,
+.productListItem__qty {
+	margin-bottom: 5px
+}
+
+.productListItem__subtotal {
+	color: var(--color2)
+}
+
+.productListItem__btn {
+	background-color: rgba(0,0,0,0);
+	border-radius: 5px;
+	align-self: start;
+	height: 60px
+}
+
+.form__btnSubmit,
+.btn__edit {
+	border: 1px solid var(--color2)
+}
+
+.form__btnCancel,
+.btn__remove {
+	border: 1px solid var(--color3)
+}
+
+.productListContainer.empty {
+	padding: 6em 4em
+}
+
+.productListPlaceholder,
+.productListContainer.empty .productList {
+	display: none
+}
+
+.info__copyright,
+.info__description,
+.productListItemInfo,
+.productListContainer.empty .productListPlaceholder {
+	color: var(--color4)
+}
+
+.form__btn__icon,
+.productListContainer.empty .productListPlaceholder {
+	margin: auto
+}
+
+.form__label,
+.form__input,
+.productListContainer.empty .productListPlaceholder {
+	text-align: center
+}
+
+.totalSum {
+	padding: 1.5em 2em;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color4);
+	color: white
+}
+
+.productListItem__name,
+.productListItem__subtotal,
+.totalSum {
+	font-weight: bold
+}
+
+.productList,
+.productListItem__name,
+.productListItem__subtotal,
+.totalSum {
+	font-size: 2em
+}
+
+.form__label,
+.totalSum {
+	text-transform: uppercase
+}
+
+.producto .form__input,
+.productListItem__name {
+	text-transform: capitalize
+}
+
+body,
+.header,
+.info,
+.info__social__list,
+.form__btnSubmit,
+.form__btnCancel,
+.totalSum__btnClean,
+.productListContainer.empty,
+.totalSum {
+	display: flex
+}
+
+.form__label,
+.form__input,
+.form__btn__icon,
+.productListItem__name,
+.productListItem__subtotal,
+.productListItem__qty,
+.productListItem__price,
+.productListContainer.empty .productListPlaceholder,
+.totalSum__title,
+.totalSum__number {
+	display: block
+}
+
+.totalSum__btnClean {
+	width: 4.5em;
+	height: 4.5em;
+	background-color: var(--color3)
+}
+
+button:disabled {
+	background-color: rgb(180, 180, 180)
+}

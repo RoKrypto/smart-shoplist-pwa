@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="author" content="Rodrigo Mendoza">
+		<meta name="description" content="Una calculadora orientada a facilitar tu experiencia de compra.">
+		<!-- PWA Meta tags --> 
+		<meta name="msapplication-TileColor" content="#508484">
+		<meta name="theme-color" content="#508484">
+		<meta name="MobileOptimized" content="width">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="msapplication-TileImage" content="./img/head-icons/ms-icon-144x144.png">
+		<link rel="apple-touch-startup-image" href="./img/head-icons/favicon.png">
+		<link rel="apple-touch-icon" sizes="57x57" href="./img/head-icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./img/head-icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./img/head-icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./img/head-icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./img/head-icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./img/head-icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./img/head-icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./img/head-icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./img/head-icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./img/head-icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./img/head-icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./img/head-icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./img/head-icons/favicon-16x16.png">
+		<link rel="shortcut icon" type="image/png" href="./img/head-icons/favicon.png">
+		<link rel="manifest" href="./manifest.json">
+		<!-- -->
+		<link rel="stylesheet" href="./css/styles.min.css">
+		<script defer src="./js/app.min.js"></script>
+		<script defer src="./js/scripts.min.js"></script>
+		<title>Smart Shoplist</title>
+	</head>
+	<body>
+		<header class="header">
+			<img class="header__logo" src="./img/smart-shoplist-imagotipo.svg" alt="Smart Shoplist Logo">
+			<button class="btnReset header__info__btn" id="info__btn">
+				<img src="./icons/info.svg" alt="info" class="form__btn__icon">
+			</button>
+		</header>
+		<section class="info" id="info">
+			<div class="wrapper">
+				<p class="info__copyright">&copy; 2019</p>
+				<p class="info__description">Proyecto ideado, diseñado y desarrollado por <b>Rodrigo Mendoza</b></p>
+				<ul class="listReset info__social__list">
+					<li class="info__social__list__item">
+						<a class="info__social__list__link" href="https://www.linkedin.com/in/rodrigo7mendoza/" target="_blank">
+							<img class="info__social__icon" src="./icons/linkedin.svg" alt="linkedin">
+						</a>
+					</li>
+					<li class="info__social__list__item">
+						<a class="info__social__list__link" href="https://www.instagram.com/rodrigo_mendoza_ruiz/" target="_blank">
+							<img class="info__social__icon" src="./icons/instagram.svg" alt="instagram">
+						</a>
+					</li>
+					<li class="info__social__list__item">
+						<a class="info__social__list__link" href="mailto:rk_2443@hotmail.com" target="_blank">
+							<img class="info__social__icon" src="./icons/email.svg" alt="email">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<form class="form" id="form">
+			<fieldset class="fieldReset form__inputArea producto">
+				<label class="form__label" for="form__productInput">Producto</label>
+				<input class="inputReset form__input" id="form__productInput" type="text" required>
+				<input id="product__id__input" type="hidden">
+			</fieldset>
+			<fieldset class="fieldReset form__inputArea cantidad">
+				<label class="form__label" for="form__qtyInput">Cant.</label>
+				<input class="inputReset form__input" id="form__qtyInput" type="number" min="1" step="0.01" required>
+			</fieldset>
+			<fieldset class="fieldReset form__inputArea precio">
+				<label class="form__label" for="form__priceInput">Precio Unit.</label>
+				<input class="inputReset form__input" id="form__priceInput" type="number" min="0" step="0.01" required>
+			</fieldset>
+			<button type="submit" class="btnReset form__btnSubmit carrito" id="add__product__btn">
+				<img src="./icons/cart.svg" alt="carrito" class="form__btn__icon" id="add__product__img">
+			</button>
+			<button type="reset" class="btnReset form__btnCancel cancelar" id="cancel__btn">
+				<img src="./icons/remove.svg" alt="cancelar" class="form__btn__icon">
+			</button>
+		</form>
+		<section class="productListContainer empty" id="productListContainer">
+			<span class="productListPlaceholder">Los productos agregados a la lista van aquí.</span>
+
+			<ul class="listReset productList" id="productList"></ul>
+		</section>
+		<footer class="totalSum">
+			<div class="totalSumInfo">
+				<span class="totalSum__title">Total a pagar</span>
+				<span class="totalSum__number" id="total__payment">0</span>
+			</div>
+			<button class="btnReset totalSum__btnClean" disabled id="remove__products__btn">
+				<img src="./icons/clean.svg" alt="resetear suma" class="form__btn__icon">
+			</button>
+		</footer>
+	</body>
+</html>
