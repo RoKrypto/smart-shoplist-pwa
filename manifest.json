@@ -1,7 +1,7 @@
 {
  "name": "Smart Shoplist",
  "short_name": "Smart Shoplist",
- "description": "Una calculadora orientada a facilitar tu experiencia vas de compras.",
+ "description": "Una calculadora orientada a facilitar tu experiencia cuando vas de compras.",
  "lang": "es-PY",
  "start_url": "./?utm_source=web_app_manifest",
  "scope": "./",
