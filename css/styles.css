@@ -133,8 +133,8 @@ body {
 .form {
 	grid-template-columns: 1fr 1fr 1fr 8em;
 	grid-auto-rows: 8em;
-	grid-template-areas: 'producto producto producto carrito'
-						 'cantidad precio precio cancelar';
+	grid-template-areas: 'producto producto producto cancelar'
+						 'cantidad precio precio carrito';
 	grid-gap: calc(13 / 7.5 * 1em);
 	padding: 4em calc(20 / 7.5 * 1em);
 	font-size: 1.5em; /* 7.5px */
