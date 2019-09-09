@@ -162,6 +162,7 @@ productForm.addEventListener('submit', e => {
 /* Clean products list */
 removeProductsBtn.addEventListener('click', () => {
 	Product.resetProductList();
+	Product.cleanProductInputValues();
 })
 
 /* Enable buttons from the list */

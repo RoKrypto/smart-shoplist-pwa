@@ -36,40 +36,39 @@ const cacheName = 'v1_smart_shoplist_cache',
       ];
 
 self.addEventListener('install', e => {
+  console.log('Service Worker installed');
+  
   e.waitUntil(
-    caches.open( cacheName )
+    caches
+      .open(cacheName)
       .then(cache => {
+        console.log('Service Worker: caching files');
         return cache.addAll( urlsToCache )
-          .then(() => {
-            self.skipWaiting();
-          })
       })
+      .then(() => self.skipWaiting())
       .catch(err => console.log('Falló registro del cache', err))
   );
 });
 
 self.addEventListener('activate', e => {
-  const cacheWhiteList = [cacheName];
-
+  console.log('Service Worker activated');
+  //Remove unwanted caches
   e.waitUntil(
     caches.keys()
       .then(cacheNames => {
-        cacheNames.map(cacheName => {
-          if( cacheWhiteList.indexOf(cacheName) === -1 ) return caches.delete(cacheName)
+        cacheNames.map(cache => {
+          if( cache !== cacheName ) {
+            console.log('Service Worker: clearing old cache');
+            return caches.delete(cache);
+          }
         })
-      })
-      .then(() => {
-        self.clients.claim()
       })
   );
 });
 
 self.addEventListener('fetch', e => {
+  console.log('Service Worker: fetching');
   e.respondWith(
-    caches.match( e.request )
-      .then(res => {
-        if( res ) return res;
-        return fetch( e.request );
-      })
+    fetch(e.request).catch(() => caches.match(e.request))
   );
 });
