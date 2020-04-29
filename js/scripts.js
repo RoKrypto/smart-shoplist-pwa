@@ -1,6 +1,6 @@
 if( navigator.serviceWorker ) {
 	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('./sw.js', {scope: '.'})
+		navigator.serviceWorker.register('./sw.js', {scope: './'})
 			.then( reg => console.log('Registro de SW exitoso', reg) )
 			.catch( err => console.warn('Error al tratar de registrar el SW', err) );
 	})

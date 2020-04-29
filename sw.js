@@ -1,4 +1,4 @@
-const cacheName = 'v1_smart_shoplist_cache',
+const cacheName = 'v2_smart_shoplist_cache',
       urlsToCache = [
         './',
         './img/head-icons/favicon.png',
